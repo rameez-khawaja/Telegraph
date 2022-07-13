@@ -5,12 +5,14 @@ function init() {
     fetch(`http://localhost:3000/posts/${fetchId}`)
         .then((resp) => resp.json())
         .then((result) => {
-            title = document.getElementById("title")
-            title.textContent = result.title
-            author = document.getElementById("author")
-            author.textContent = "by " + result.author
-            content = document.getElementById("content")
-            content.textContent = result.content
+            if (result.title!=undefined){
+                title = document.getElementById("title")
+                title.textContent = result.title
+                author = document.getElementById("author")
+                author.textContent = "by " + result.author
+                content = document.getElementById("content")
+                content.textContent = result.content
+            }
         })
         .catch(err => {
             return ("Couldn't find search term");
