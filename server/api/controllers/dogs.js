@@ -13,7 +13,6 @@ router.get('/', async (req, res) => {
     }
 })
 
-
 // dogs show route
 router.get('/:id', async (req, res) => {
     try {
