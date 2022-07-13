@@ -8,7 +8,7 @@ function init() {
             title = document.getElementById("title")
             title.textContent = result.title
             author = document.getElementById("author")
-            author.textContent = result.author
+            author.textContent = "by " + result.author
             content = document.getElementById("content")
             content.textContent = result.content
         })

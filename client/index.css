@@ -1,0 +1,33 @@
+
+form{
+    display: grid;
+    height: 100vh;
+    justify-content:center;
+    align-content: center;
+
+    
+}
+
+button{
+    border-radius: 45px;
+    height: 25px;
+    vertical-align: middle;
+    
+}
+
+
+#title{
+    width: 500px;
+    margin-bottom: 5px;
+    align-content: center;
+}
+body {
+    background-color:rgba(135, 127, 153, 0.733);
+}
+
+#author{
+    margin-bottom: 5px;
+}
+#content{
+    margin-bottom: 5px;
+}

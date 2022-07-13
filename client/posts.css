@@ -1,0 +1,17 @@
+#author{
+    font-size: 30px;
+
+    
+}
+
+#content{
+    font-size: 30px;
+    
+}
+
+body{
+    display: grid;
+    height: 100vh;
+    justify-content:center;
+    align-content: center;
+}
