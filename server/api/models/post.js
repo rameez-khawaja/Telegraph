@@ -1,7 +1,7 @@
 const { init } = require ('../dbConfig')
 const { ObjectId } = require('mongodb')
 
-class Dog {
+class Post {
     constructor(data){
         this.id = data.id
         this.title = data.title
@@ -13,12 +13,12 @@ class Dog {
         return new Promise (async (resolve, reject) => {
             try {
                 const db = await init()
-                const dogsData = await db.collection('dogs').find().toArray()
-                // const dogs = dogsData.map(d => new Dog({ ...d, id: d._id }))
-                resolve(dogsData);
+                const postsData = await db.collection('posts').find().toArray()
+                const posts = postsData.map(d => new Post({ ...d, id: d._id }))
+                resolve(posts);
             } catch (err) {
                 console.log(err);
-                reject("Error retrieving dogs")
+                reject("Error retrieving posts")
             }
         })
     }
@@ -27,11 +27,11 @@ class Dog {
         return new Promise (async (resolve, reject) => {
             try {
                 const db = await init();
-                let dogData = await db.collection('dogs').find({ _id: ObjectId(id) }).toArray()
-                let dog = new Dog({...dogData[0], id: dogData[0]._id});
-                resolve (dogData);
+                let postData = await db.collection('posts').find({ _id: ObjectId(id) }).toArray()
+                let post = new Post({...postData[0], id: postData[0]._id});
+                resolve (post);
             } catch (err) {
-                reject('Dog not found');
+                reject('Post not found');
             }
         });
     }
@@ -40,14 +40,14 @@ class Dog {
         return new Promise (async (resolve, reject) => {
             try {
                 const db = await init();
-                let dogData = await db.collection('dogs').insertOne({ title, author, content })
-                let newDog = new Dog(dogData.ops[0]);
-                resolve (newDog);
+                let postData = await db.collection('posts').insertOne({ title, author, content })
+                let newPost = new Post(postData.ops[0]);
+                resolve (newPost);
             } catch (err) {
-                reject('Error creating dog');
+                reject('Error creating post');
             }
         });
     }
 }
 
-module.exports = Dog;
+module.exports = Post;
