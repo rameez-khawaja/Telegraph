@@ -12,6 +12,9 @@ function init() {
                 author.textContent = "by " + result.author
                 content = document.getElementById("content")
                 content.textContent = result.content
+            } else {
+                title = document.getElementById("title")
+                title.textContent = "Post not found"
             }
         })
         .catch(err => {
